@@ -1,6 +1,10 @@
-h1{
+.text-na-pocetok{
     font-family: Arial, Helvetica, sans-serif;
-    color: brown;
-    text-shadow: 2px 2px 8px #57020270;
     font-size: 280%;
+    text-shadow: 2px 2px 8px #57020270;
+}
+
+.new-list-edit{
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #57020270;
 }
