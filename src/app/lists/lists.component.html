@@ -1,3 +1,22 @@
+
+<form (ngSubmit)="onSubmit(listForm.form)" #listForm="ngForm" id="newForm" class="create forma1 col-xs-6">
+  <div class="col-xs-12 form-group">
+    <label for="formGroupExampleInput">List Name:</label>
+    <input type="text" required class="form-control" id="formGroupExampleInput" 
+            placeholder="Add List Name Here" name="name" [(ngModel)]="model.name" #name="ngModel">
+  </div>
+  <br><br><br><br>
+  <div class="col-xs-12 form-group">
+    <label for="formGroupExampleInput2">List Content:</label>
+    <textarea name="reviewText" rows="5" class="form-control" 
+            placeholder="Insert Your List Here" name="desc" [(ngModel)]="model.desc" #desc="ngModel">
+    </textarea>  
+  </div>
+  <button class="btn btn-success" onclick="addList(model)">Add</button>
+  <br><br>
+</form>
+
+
 <form class="lists forma col-xs-6" *ngFor="let list of lists">
   <div class="col-xs-12 form-group">
     <label for="formGroupExampleInput">List Name:</label>
@@ -8,4 +27,10 @@
     <label for="formGroupExampleInput2">List Content:</label>
     <textarea name="reviewText" rows="5" class="form-control" value="{{list.desc}}" disabled="disabled"></textarea>  
   </div>
+  <div class="btn-group">
+  <button class="btn btn-success">Save</button>
+  <button class="btn btn-info">Edit</button>
+  <button class="btn btn-danger">Delete</button>
+  </div>
+  <br><br>
   </form>

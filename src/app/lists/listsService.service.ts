@@ -23,8 +23,14 @@ export class ListsService {
   //get lists from the server
   getLists(): Observable<ToDoTable[]>{
     return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get');
-
-  //get list by 
+  }
+  //add a new list 
+  addList(form): Observable<ToDoTable> {
+    const headers = new HttpHeaders()
+    .set("Content-Type", "application/json");
+    const url = `${ROOT_URL}/list/post`;
+    console.log(JSON.stringify(form));
+    return this.http.post<ToDoTable>(url, JSON.stringify(form), {headers});
   }
 }
   
