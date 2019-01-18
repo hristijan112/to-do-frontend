@@ -1,0 +1,1 @@
+export const ROOT_URL:string='http://todolist123.somee.com/api/v1';
