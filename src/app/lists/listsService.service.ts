@@ -24,9 +24,7 @@ export class ListsService {
   getLists(): Observable<ToDoTable[]>{
     return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get');
 
-  //getLists(){
-   //return this.http.get(ROOT_URL + '/list/get');
-
+  //get list by 
   }
 }
   
