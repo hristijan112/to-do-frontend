@@ -7,12 +7,6 @@ import { ROOT_URL } from '../classes/config';
 import { FormsModule, NgForm } from '@angular/forms';
 import { resolve } from 'q';
 
-const LISTS = [
-  'eden', 'dva', 'tri',
-];
-
-
-
 
 @Injectable()
 export class ListsService {
@@ -31,6 +25,12 @@ export class ListsService {
     const url = `${ROOT_URL}/list/post`;
     console.log(JSON.stringify(form));
     return this.http.post<ToDoTable>(url, JSON.stringify(form), {headers});
+  }
+
+  //delete a list
+  deleteList(ID: number): Observable<{}> {
+    const url = `${ROOT_URL}/list/delete/${ID}`;
+    return this.http.delete(url);
   }
 }
   

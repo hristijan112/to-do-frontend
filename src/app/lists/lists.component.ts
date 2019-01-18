@@ -35,4 +35,10 @@ export class ListsComponent implements OnInit {
   getLists(): void{
     this.listsService.getLists().subscribe(lists => this.lists = lists);
   }
+
+  deleteList(list: ToDoTable): void{
+    if(confirm("Do you want to delete this list?")){
+    this.listsService.deleteList(list.id).subscribe(data => this.getLists());
+    }
+  }
 }
