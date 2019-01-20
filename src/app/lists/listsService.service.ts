@@ -27,15 +27,6 @@ export class ListsService {
     }
   }
 
-  //get lists from the server ordered by name ascending
-  getListsASC(): Observable<ToDoTable[]>{
-    return this.http.get<ToDoTable[]>(ROOT_URL + 'list/get/asc');
-  }
-
-  //get lists from the server ordered by name descending
-  getListsDESC(): Observable<ToDoTable[]>{
-    return this.http.get<ToDoTable[]>(ROOT_URL + 'list/get/desc');
-  }
 
   //add a new list 
   addList(form): Observable<ToDoTable> {

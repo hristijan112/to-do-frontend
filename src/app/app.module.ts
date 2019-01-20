@@ -10,6 +10,7 @@ import {ListsService} from './lists/listsService.service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListsComponent } from './lists/lists.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: ':status', component: ListsComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ListsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

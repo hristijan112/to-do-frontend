@@ -20,6 +20,7 @@ export class ListsComponent implements OnInit {
   createList: ToDoTable;
   submitted = false;
   model: ToDoTable = new ToDoTable();
+  show: boolean = false;
   isDisabled: boolean = true;
   private path;
 
@@ -51,11 +52,12 @@ export class ListsComponent implements OnInit {
     }
   }
 
-  edit(){
+  edit(list){
+    this.editList = list;
     this.isDisabled=false;
     }
 
-  update(list1): void{
+  update(): void{
     this.listsService.updateList(this.editList).subscribe(data => this.ngOnInit());
     this.isDisabled=true;
   }

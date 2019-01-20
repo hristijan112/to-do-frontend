@@ -29,6 +29,25 @@
 </form>
 
 
+<!--
+<form class="forma1 col-xs-6" *ngFor="let list of list">
+  <div *ngIF="show" class="col-xs-12 form-group">
+    <label for="formGroupExampleInput3">List Name:</label>
+    <input type="text" required class="form-control" id="formGroupExampleInput3" 
+            value="{{list.name}}" name="name" [(ngModel)]="list.name">
+  </div>
+  <br><br><br><br>
+  <div class="col-xs-12 form-group">
+    <label for="formGroupExampleInput4">List Content:</label>
+    <textarea id="formGroupExampleInput4" name="reviewText" rows="5" class="form-control" 
+            value="{{list.desc}}" name="desc" [(ngModel)]="list.desc">
+    </textarea>  
+  </div>
+  <button class="btn btn-success" onclick="edit(list)">Add</button>
+  </form>
+  <br><br>
+-->
+
 
 <form class="lists forma col-xs-6" *ngFor="let list of lists">
   <div class="col-xs-12 form-group">
@@ -41,8 +60,8 @@
     <textarea id="formGroupExampleInput2" name="reviewText" rows="5" class="form-control" value="{{list.desc}}" [disabled]="isDisabled"></textarea>  
   </div>
   <div class="btn-group">
-  <button class="btn btn-success" (click)="update(list)">Save</button>
-  <button class="btn btn-info" (click)="edit()">Edit</button>
+  <button class="btn btn-success" (click)="update()">Save</button>
+  <button class="btn btn-info" (click)="edit(list)">Edit</button>
   <button class="btn btn-danger" (click)="deleteList(list)">Delete</button>
   </div>
   <br><br>
