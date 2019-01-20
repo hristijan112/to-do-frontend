@@ -1,3 +1,15 @@
+<ul class="filters">
+  <span>sort by name:</span>
+  <li>
+    <a [routerLink]="['/default']" [class.selected]="path === 'default'">default</a>
+  </li>
+  <li>
+    <a [routerLink]="['/ascending']" [class.selected]="path === 'ascending'">ascending</a>
+  </li>
+  <li>
+    <a [routerLink]="['/descending']" [class.selected]="path === 'descending'">descending</a>
+  </li>
+</ul>
 
 <form (ngSubmit)="onSubmit(listForm.form)" #listForm="ngForm" id="newForm" class="create forma1 col-xs-6">
   <div class="col-xs-12 form-group">
@@ -17,19 +29,20 @@
 </form>
 
 
+
 <form class="lists forma col-xs-6" *ngFor="let list of lists">
   <div class="col-xs-12 form-group">
     <label for="formGroupExampleInput">List Name:</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" value="{{list.name}}" disabled="disabled">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="{{list.name}}" [disabled]="isDisabled">
   </div>
   <br><br><br><br>
   <div class="col-xs-12 form-group">
     <label for="formGroupExampleInput2">List Content:</label>
-    <textarea name="reviewText" rows="5" class="form-control" value="{{list.desc}}" disabled="disabled"></textarea>  
+    <textarea id="formGroupExampleInput2" name="reviewText" rows="5" class="form-control" value="{{list.desc}}" [disabled]="isDisabled"></textarea>  
   </div>
   <div class="btn-group">
-  <button class="btn btn-success">Save</button>
-  <button class="btn btn-info">Edit</button>
+  <button class="btn btn-success" (click)="update(list)">Save</button>
+  <button class="btn btn-info" (click)="edit()">Edit</button>
   <button class="btn btn-danger" (click)="deleteList(list)">Delete</button>
   </div>
   <br><br>

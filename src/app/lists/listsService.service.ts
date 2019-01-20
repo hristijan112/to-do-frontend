@@ -15,9 +15,28 @@ export class ListsService {
 
 
   //get lists from the server
-  getLists(): Observable<ToDoTable[]>{
-    return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get');
+  getLists(pateka = ''): Observable<ToDoTable[]>{
+    if(pateka == 'ascending'){
+    return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get/asc');
+    }
+    else if(pateka == 'descending'){
+      return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get/desc');
+    }
+    else{
+      return this.http.get<ToDoTable[]>(ROOT_URL + '/list/get');
+    }
   }
+
+  //get lists from the server ordered by name ascending
+  getListsASC(): Observable<ToDoTable[]>{
+    return this.http.get<ToDoTable[]>(ROOT_URL + 'list/get/asc');
+  }
+
+  //get lists from the server ordered by name descending
+  getListsDESC(): Observable<ToDoTable[]>{
+    return this.http.get<ToDoTable[]>(ROOT_URL + 'list/get/desc');
+  }
+
   //add a new list 
   addList(form): Observable<ToDoTable> {
     const headers = new HttpHeaders()
@@ -31,6 +50,14 @@ export class ListsService {
   deleteList(ID: number): Observable<{}> {
     const url = `${ROOT_URL}/list/delete/${ID}`;
     return this.http.delete(url);
+  }
+
+  //Edit a list
+  updateList(list: ToDoTable): Observable<ToDoTable>{
+    const headers = new HttpHeaders()
+    .set("Content-Type", "application/json");
+    const url = `${ROOT_URL}/list/put/${list.id}`;
+    return this.http.put<ToDoTable>(url , JSON.stringify(list), {headers});
   }
 }
   
